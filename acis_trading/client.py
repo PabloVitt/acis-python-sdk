@@ -2,7 +2,7 @@
 ACIS Trading API Client
 
 A Python client for the ACIS Trading API - AI-powered stock portfolio
-generation and rebalancing.
+generation.
 """
 
 import requests
@@ -40,24 +40,11 @@ class Position:
         }
 
 
-@dataclass
-class RebalanceSuggestion:
-    """Represents a rebalancing suggestion."""
-
-    ticker: str
-    action: str  # 'buy', 'sell', 'hold'
-    current_weight: float
-    target_weight: float
-    weight_change: float
-    shares_to_trade: Optional[int] = None
-    reason: Optional[str] = None
-
-
 class ACISClient:
     """
     ACIS Trading API Client.
 
-    Provides access to AI-powered portfolio generation and rebalancing.
+    Provides access to AI-powered portfolio generation.
 
     Args:
         api_key: Your ACIS API key (get one at https://acis-trading.com/api-keys)
@@ -218,63 +205,6 @@ class ACISClient:
             payload["investment_amount"] = investment_amount
 
         return self._request("POST", "/portfolios/generate", json=payload)
-
-    def get_rebalance_suggestions(
-        self,
-        current_positions: List[Dict[str, float]],
-        strategy: Literal[
-            "value",
-            "growth",
-            "dividend",
-            "adaptive",
-            "value_largecap",
-            "value_smallcap",
-            "growth_largecap",
-            "growth_smallcap",
-        ],
-        market_cap: Literal["large", "small"] = "large",
-        rebalance_threshold: float = 0.02,
-    ) -> dict:
-        """
-        Get AI-powered rebalancing suggestions for an existing portfolio.
-
-        Compares current positions to optimal target weights and provides
-        specific buy/sell/hold recommendations.
-
-        Args:
-            current_positions: List of current positions, each with:
-                - ticker (str): Stock symbol
-                - weight (float): Current portfolio weight (0-1)
-                - shares (int, optional): Number of shares held
-            strategy: Target strategy to rebalance toward
-            market_cap: Market cap focus ("large" or "small")
-            rebalance_threshold: Minimum weight difference to trigger rebalance
-
-        Returns:
-            dict: Rebalancing suggestions with actions and reasoning
-
-        Example:
-            >>> positions = [
-            ...     {"ticker": "AAPL", "weight": 0.15, "shares": 100},
-            ...     {"ticker": "MSFT", "weight": 0.12, "shares": 50},
-            ...     {"ticker": "GOOGL", "weight": 0.10, "shares": 25},
-            ... ]
-            >>> suggestions = client.get_rebalance_suggestions(
-            ...     current_positions=positions,
-            ...     strategy="value",
-            ...     rebalance_threshold=0.03
-            ... )
-            >>> for s in suggestions["suggestions"]:
-            ...     print(f"{s['action'].upper()} {s['ticker']}")
-        """
-        payload = {
-            "current_positions": current_positions,
-            "strategy": strategy,
-            "market_cap": market_cap,
-            "rebalance_threshold": rebalance_threshold,
-        }
-
-        return self._request("POST", "/portfolios/rebalance", json=payload)
 
     # =========================================================================
     # Account & Usage

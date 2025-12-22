@@ -1,7 +1,7 @@
 """
 ACIS Trading Python SDK
 
-AI-powered stock portfolio generation and rebalancing.
+AI-powered stock portfolio generation.
 
 Usage:
     from acis_trading import ACISClient

@@ -4,13 +4,12 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Official Python SDK for the [ACIS Trading API](https://acis-trading.com) - AI-powered stock portfolio generation and rebalancing.
+Official Python SDK for the [ACIS Trading API](https://acis-trading.com) - AI-powered stock portfolio generation.
 
 ## Features
 
 - **AI Portfolio Generation** - Generate optimized portfolios using LightGBM machine learning models
 - **8 Investment Strategies** - Value, Growth, Dividend, Adaptive, plus Large/Small Cap variants
-- **Rebalancing Suggestions** - Get AI-powered buy/sell/hold recommendations
 - **Walk-Forward Validated** - Models validated with proper time-series methodology (no lookahead bias)
 
 ## Installation
@@ -87,26 +86,6 @@ portfolio = client.generate_portfolio(
         "model_version": "v2.1"
     }
 }
-```
-
-### Get Rebalancing Suggestions
-
-```python
-# Your current holdings
-current_positions = [
-    {"ticker": "AAPL", "weight": 0.15, "shares": 100},
-    {"ticker": "MSFT", "weight": 0.12, "shares": 50},
-    {"ticker": "GOOGL", "weight": 0.10, "shares": 25},
-]
-
-suggestions = client.get_rebalance_suggestions(
-    current_positions=current_positions,
-    strategy="value",
-    rebalance_threshold=0.03  # 3% threshold
-)
-
-for s in suggestions["suggestions"]:
-    print(f"{s['action'].upper()} {s['ticker']}: {s['reason']}")
 ```
 
 ### Check Usage
@@ -206,40 +185,6 @@ with open("portfolio.csv", "w", newline="") as f:
     writer.writerows(portfolio["positions"])
 
 print("Portfolio exported to portfolio.csv")
-```
-
-### Daily Rebalance Check
-
-```python
-from acis_trading import ACISClient
-
-client = ACISClient(api_key="your_key")
-
-# Your current holdings (from your brokerage)
-my_holdings = [
-    {"ticker": "AAPL", "weight": 0.08, "shares": 50},
-    {"ticker": "MSFT", "weight": 0.06, "shares": 30},
-    {"ticker": "JPM", "weight": 0.05, "shares": 20},
-    # ... rest of your portfolio
-]
-
-# Get rebalancing suggestions
-suggestions = client.get_rebalance_suggestions(
-    current_positions=my_holdings,
-    strategy="value",
-    rebalance_threshold=0.02  # 2% threshold
-)
-
-# Filter actionable suggestions
-actions = [s for s in suggestions["suggestions"] if s["action"] != "hold"]
-
-if actions:
-    print(f"Found {len(actions)} rebalancing opportunities:")
-    for s in actions:
-        print(f"  {s['action'].upper()} {s['ticker']}: "
-              f"{s['current_weight']:.1%} -> {s['target_weight']:.1%}")
-else:
-    print("Portfolio is well-balanced. No action needed.")
 ```
 
 ## Rate Limits

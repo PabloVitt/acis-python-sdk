@@ -41,16 +41,18 @@ for position in portfolio["positions"]:
 
 ## Available Strategies
 
-| Strategy | Description | Tier Required |
-|----------|-------------|---------------|
-| `dividend` | Income-focused dividend stocks | Starter |
-| `adaptive` | Dynamic market-regime aware | Starter |
-| `value` | Undervalued stocks with strong fundamentals | Growth |
-| `growth` | High-growth companies | Growth |
-| `value_largecap` | Large-cap value stocks | Premium |
-| `growth_largecap` | Large-cap growth stocks | Premium |
-| `value_smallcap` | Small/mid-cap value stocks | Premium |
-| `growth_smallcap` | Small/mid-cap growth stocks | Premium |
+All 8 strategies are available with API Pro ($149/mo):
+
+| Strategy | Description |
+|----------|-------------|
+| `dividend` | Income-focused dividend stocks |
+| `adaptive` | Dynamic market-regime aware |
+| `value` | Undervalued stocks with strong fundamentals |
+| `growth` | High-growth companies |
+| `value_largecap` | Large-cap value stocks |
+| `growth_largecap` | Large-cap growth stocks |
+| `value_smallcap` | Small/mid-cap value stocks |
+| `growth_smallcap` | Small/mid-cap growth stocks |
 
 ## API Reference
 
@@ -242,20 +244,19 @@ else:
 
 ## Rate Limits
 
-| Tier | Daily Requests | Price |
-|------|----------------|-------|
-| Starter | 100 | $19/mo |
-| Growth | 500 | $49/mo |
-| Premium | 2,000 | $99/mo |
-| API Pro | 100,000 | $149/mo |
+**API Pro Plan:** $149/month
+- 50,000 API calls/month
+- 10,000 daily rate limit
+- All 8 AI strategies
+- 30-day free trial
 
 ## Getting an API Key
 
-1. Sign up at [acis-trading.com/signup](https://acis-trading.com/signup)
+1. Sign up at [acis-trading.com/signup](https://acis-trading.com/signup?plan=api_pro)
 2. Go to [API Keys](https://acis-trading.com/api-keys) in your dashboard
 3. Create a new API key
 
-All plans include a 30-day free trial.
+SDK access requires the API Pro plan. Start with a 30-day free trial.
 
 ## Support
 

